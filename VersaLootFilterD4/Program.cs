@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
@@ -15,8 +15,8 @@ namespace VersaLootFilterD4
     {
         static readonly string Title = string.Format("Versa Diablo IV Loot Filter ver. {0}", Assembly.GetEntryAssembly().GetName().Version.ToString());
 
-        static WinAPI.VirtualKeys DefaultKey = WinAPI.VirtualKeys.Numpad0;
-        static WinAPI.VirtualKeys QuickKey = WinAPI.VirtualKeys.Numpad1;
+        static WinAPI.VirtualKeys DefaultKey = WinAPI.VirtualKeys.F7;
+        static WinAPI.VirtualKeys QuickKey = WinAPI.VirtualKeys.F8;
 
         static bool Debug()
         {
@@ -48,43 +48,52 @@ namespace VersaLootFilterD4
 
             Console.WriteLine("Getting process");
             Process[] processes = Process.GetProcesses();
-            Process process = processes.First(p => p.ProcessName == "Diablo IV" && p.MainWindowTitle == "Diablo IV");
-            if (process == null)
+            try
             {
-                Console.WriteLine("No process found!");
-                return;
+                Process process = processes.First(p => p.ProcessName == "Diablo IV" && p.MainWindowTitle == "Diablo IV");
+                if (process == null)
+                {
+                    Console.WriteLine("No process found!");
+                    return;
+                }
+                process.EnableRaisingEvents = true;
+                process.Exited += ProcessExitedCallback;
+                Console.WriteLine("Getting handle");
+                Actions.SetWindowHandle(process.MainWindowHandle);
+                GameManager.MainWindowHandle = process.MainWindowHandle;
+                Console.WriteLine("Process handle: {0}", GameManager.MainWindowHandle);
+
+                Console.WriteLine("Main loop...");
+                while (true)
+                {
+                    if (!WinManager.IsWindowInFocus(GameManager.MainWindowHandle))
+                        continue;
+
+                    if (WinManager.IsKeyPressed(DefaultKey))
+                        Start();
+                    else if (WinManager.IsKeyPressed(QuickKey))
+                        Start(true);
+                }
             }
-            process.EnableRaisingEvents = true;
-            process.Exited += ProcessExitedCallback;
-
-            Console.WriteLine("Getting handle");
-            Actions.SetWindowHandle(process.MainWindowHandle);
-            GameManager.MainWindowHandle = process.MainWindowHandle;
-            Console.WriteLine("Process handle: {0}", GameManager.MainWindowHandle);
-
-            Console.WriteLine("Main loop...");
-            while (true)
+            catch (Exception)
             {
-                if (!WinManager.IsWindowInFocus(GameManager.MainWindowHandle))
-                    continue;
-
-                if (WinManager.IsKeyPressed(DefaultKey))
-                    Start();
-                else if (WinManager.IsKeyPressed(QuickKey))
-                    Start(true);
+                Console.WriteLine("¡Diablo IV Process NOT FOUND!");
+                // wait user input to close console
+                Console.ReadLine();
+                return;
             }
         }
 
         static void Start(bool quick = false)
         {
-            //Console.WriteLine("ScreenCapture analyze started");
+            Console.WriteLine("ScreenCapture analyze started");
 
-            //CaptureHandler.StartPrimaryMonitorCapture(); // TODO: fix to window capture
+            CaptureHandler.StartPrimaryMonitorCapture(); // TODO: fix to window capture
             CaptureHandler.StartWindowCapture(GameManager.MainWindowHandle);
             TemplateMatching.DiabloTooltipDetectionLoop(quick ? null : Actions.IterateOverBag(), TooltipParser.ProcessItemTooltipImage);
             CaptureHandler.Stop();
 
-            //Console.WriteLine("ScreenCapture analyze done");
+            Console.WriteLine("ScreenCapture analyze done");
         }
 
         private static void ProcessExitedCallback(object sender, EventArgs e)
