@@ -103,7 +103,7 @@ namespace VersaLootFilterD4
                 Bitmap tooltipImage = null;
                 try
                 {
-                    tooltipImage = FrameProcessor.GetDiabloTooltip();
+                    tooltipImage = FrameProcessor.GetDiabloTooltip(IsDebug);
                 }
                 catch (Exception ex)
                 {

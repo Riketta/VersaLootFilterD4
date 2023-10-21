@@ -71,7 +71,7 @@ namespace VersaLootFilterD4
             return tooltips;
         }
 
-        static (double, Mat) FindDiabloItemTooltip(Mat frame, Mat header, Mat footer)
+        static (double, Mat) FindDiabloItemTooltip(Mat frame, Mat header, Mat footer, bool debug = false)
         {
             //Cv2.ImShow("Frame", frame);
             //Cv2.WaitKey();
@@ -101,7 +101,10 @@ namespace VersaLootFilterD4
                     minMaxValue = maxValue;
 
                 Rect rectangle = new Rect(new Point(maxLocation.X, maxLocation.Y), new Size(component.Width, component.Height));
-                //Cv2.Rectangle(frame, rectangle, Scalar.LimeGreen, 3); // DEBUG
+
+                if (debug)
+                    Cv2.Rectangle(frame, rectangle, Scalar.LimeGreen, 3);
+
                 tooltipComponentRegions[i] = rectangle;
             }
             //Console.WriteLine(minMaxValue); // DEBUG
@@ -138,7 +141,7 @@ namespace VersaLootFilterD4
         /// Take Diablo window frame, look for tooltip in that frame and return tooltip if found.
         /// </summary>
         /// <returns>Bitmap if tooltip was found, null otherwise (error or no tooltip on frame found).</returns>
-        public static System.Drawing.Bitmap GetDiabloTooltip()
+        public static System.Drawing.Bitmap GetDiabloTooltip(bool debug = false)
         {
             Mat frame = GetDiabloFrameAsMat();
             if (frame is null)
@@ -148,19 +151,20 @@ namespace VersaLootFilterD4
             //    frame = new Mat(frame, RightScreenHalf);
 
             frame = frame.CvtColor(ColorConversionCodes.BGRA2BGR); // or BGRA2GRAY?
-            (double value, Mat tooltip) = FindDiabloItemTooltip(frame, TemplateTooltipHeader, TemplateTooltipFooter);
+            (double value, Mat tooltip) = FindDiabloItemTooltip(frame, TemplateTooltipHeader, TemplateTooltipFooter, debug);
+
+            if (debug)
+            {
+                string filename = DateTime.Now.Ticks.ToString() + "_source.png";
+                frame.SaveImage(filename);
+                Console.WriteLine($"Pre-processed image of whole frame saved as: \"{filename}\"");
+            }
 
             if (value < Threshold)
                 return null;
 
             if (tooltip is null)
                 throw new Exception("No tooltip found!");
-
-            // DEBUG
-            //Console.WriteLine("Found item tooltip!");
-            //Cv2.ImShow("Frame", fixedFrame);
-            //Cv2.WaitKey();
-            //Cv2.DestroyAllWindows();
 
             return tooltip.ToBitmap();
         }
