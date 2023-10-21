@@ -179,6 +179,38 @@ namespace VersaLootFilterD4
                 }
             }
 
+            if (item.ItemPower > 700)
+            {
+                bool areStatsMissing = false;
+                int usualAmountOfStats = 0;
+
+                switch (item.Slot)
+                {
+                    case Item.SlotType.Amulet:
+                    case Item.SlotType.Helm:
+                    case Item.SlotType.Chest:
+                    case Item.SlotType.Gloves:
+                        usualAmountOfStats = 5;
+                        if (item.Stats.Count < usualAmountOfStats)
+                            areStatsMissing = true;
+                        break;
+
+                    case Item.SlotType.Weapon2H:
+                    case Item.SlotType.Weapon1H:
+                    case Item.SlotType.OffHand:
+                    case Item.SlotType.Ring:
+                    case Item.SlotType.Pants:
+                    case Item.SlotType.Boots:
+                        usualAmountOfStats = 6;
+                        if (item.Stats.Count < usualAmountOfStats)
+                            areStatsMissing = true;
+                        break;
+                }
+
+                if (areStatsMissing)
+                    Logger.WriteLineInColor(ConsoleColor.DarkYellow, $"Item has less stats than it should have: {item.Stats.Count}/{usualAmountOfStats}!");
+            }
+
             if (debug)
             {
                 Console.BackgroundColor = ConsoleColor.Magenta;
