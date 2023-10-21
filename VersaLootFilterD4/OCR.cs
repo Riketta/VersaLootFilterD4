@@ -60,7 +60,9 @@ namespace VersaLootFilterD4
                 if (debug)
                 {
                     Logger.WriteLineInColor(ConsoleColor.Cyan, $"### OcrInput: {elapsedTime / 10_000} ms");
-                    input.SaveAsImages(DateTime.Now.Ticks.ToString());
+                    string filename = DateTime.Now.Ticks.ToString();
+                    input.SaveAsImages(filename);
+                    Console.WriteLine($"Post-processed image of tooltip saved as: \"{filename}.png\"");
                 }
 
                 startTime = Stopwatch.GetTimestamp();
