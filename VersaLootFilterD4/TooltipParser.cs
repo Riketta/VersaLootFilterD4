@@ -18,7 +18,7 @@ namespace VersaLootFilterD4
         public static readonly string ItemEmptySocketString = "Empty Socket";
         public static readonly string ItemStatsAboveThisLine = "Properties lost when equipped";
 
-        public static Item Parse(List<string> tooltip)
+        public static Item Parse(List<string> tooltip, bool debug = false)
         {
             Item item = new Item();
             int lastLineWithStats = 0; // interval [0; this]

@@ -135,7 +135,7 @@ namespace VersaLootFilterD4
                 Item item = null;
                 try
                 {
-                    item = TooltipParser.Parse(tooltipStringArr);
+                    item = TooltipParser.Parse(tooltipStringArr, IsDebug);
                 }
                 catch (Exception ex)
                 {
