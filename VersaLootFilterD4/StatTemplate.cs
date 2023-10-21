@@ -173,7 +173,7 @@ namespace VersaLootFilterD4
             new StatTemplate(Item.StatType.RanksOfRavens, DefaultRegexTemplate, @"{} Ranks? of Ravens"),
             new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"{} Ranks? of Poison Creeper"),
             new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"{} Ranks? of Wolves"),
-            new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"{} Ranks? of Earthen Bulwark"),
+            new StatTemplate(Item.StatType.RanksOfEarthenBulwark, DefaultRegexTemplate, @"{} Ranks? of Earthen Bulwark"),
             new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"{} Ranks? of Debilitating Roar"),
             new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"{} Ranks? of Cyclone Armor"),
             new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"{} Ranks? of Blood Howl"),
