@@ -20,6 +20,8 @@ namespace VersaLootFilterD4
 
         public static Item Parse(List<string> tooltip, bool debug = false)
         {
+            tooltip.ForEach(line => line = line.Replace("{", "").Replace("}", ""));
+
             Item item = new Item();
             int lastLineWithStats = 0; // interval [0; this]
 
