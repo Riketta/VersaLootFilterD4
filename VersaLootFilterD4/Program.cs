@@ -123,7 +123,7 @@ namespace VersaLootFilterD4
 
                 //OCR.BruteFilters(tooltipImage); // use to correct OCR parsing filters
                 long startTime = Stopwatch.GetTimestamp();
-                List<string> tooltipStringArr = OCR.Parse(tooltipImage, true, IsDebug);
+                List<string> tooltipStringArr = OCR.Parse(tooltipImage, IsDebug);
                 long elapsedTime = Stopwatch.GetTimestamp() - startTime;
                 if (IsDebug)
                 {

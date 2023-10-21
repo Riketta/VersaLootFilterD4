@@ -38,7 +38,7 @@ namespace VersaLootFilterD4
             return result;
         }
 
-        public static List<string> Parse(Bitmap image, bool saveImageToFile, bool debug = false)
+        public static List<string> Parse(Bitmap image, bool debug = false)
         {
             //ImageConverter converter = new ImageConverter();
             //image = (byte[])converter.ConvertTo(image, typeof(byte[]));
@@ -58,10 +58,10 @@ namespace VersaLootFilterD4
                 
                 long elapsedTime = Stopwatch.GetTimestamp() - startTime;
                 if (debug)
+                {
                     Logger.WriteLineInColor(ConsoleColor.Cyan, $"### OcrInput: {elapsedTime / 10_000} ms");
-
-                if (saveImageToFile)
                     input.SaveAsImages(DateTime.Now.Ticks.ToString());
+                }
 
                 startTime = Stopwatch.GetTimestamp();
                 var ocrResult = IronTesseract.Read(input);
