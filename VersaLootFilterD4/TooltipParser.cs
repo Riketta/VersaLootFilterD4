@@ -179,9 +179,12 @@ namespace VersaLootFilterD4
                 }
             }
 
-            Console.BackgroundColor = ConsoleColor.Magenta;
-            Console.WriteLine($"  > Remaining: {allStats}"); // DEBUG
-            Console.ResetColor();
+            if (debug)
+            {
+                Console.BackgroundColor = ConsoleColor.Magenta;
+                Console.WriteLine($"  > Remaining: {allStats}");
+                Console.ResetColor();
+            }
 
             return item;
         }
