@@ -15,10 +15,11 @@ namespace VersaLootFilterD4
     {
         private static readonly string Title = string.Format("Versa Diablo IV Loot Filter ver. {0}", Assembly.GetEntryAssembly().GetName().Version.ToString());
 
-        private static readonly bool IsDebug = false;
-
         private static readonly WinAPI.VirtualKeys DefaultFilterKey = WinAPI.VirtualKeys.Numpad0;
         private static readonly WinAPI.VirtualKeys SingleItemFilterKey = WinAPI.VirtualKeys.Numpad1;
+        private static readonly WinAPI.VirtualKeys DebugSingleItemFilterKey = WinAPI.VirtualKeys.Numpad2;
+
+        private static bool IsDebug = false;
 
         static bool Debug()
         {
@@ -71,6 +72,13 @@ namespace VersaLootFilterD4
                     StartFilter();
                 else if (WinManager.IsKeyPressed(SingleItemFilterKey))
                     StartFilter(true);
+                else if (WinManager.IsKeyPressed(DebugSingleItemFilterKey))
+                {
+                    bool oldDebug = IsDebug;
+                    IsDebug = true;
+                    StartFilter(true);
+                    IsDebug = oldDebug;
+                }
             }
         }
 
