@@ -180,8 +180,117 @@ namespace VersaLootFilterD4
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.MaximumLife));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.Willpower));
 
-            filter = Create("810+ Weapon2H", Item.SlotType.Weapon2H, 0, 810);
-            filter = Create("810+ Weapon1H", Item.SlotType.Weapon1H, 0, 810);
+            filter = Create("910+ Weapon2H", Item.SlotType.Weapon2H, 0, 920);
+            filter = Create("910+ Weapon1H", Item.SlotType.Weapon1H, 0, 920);
+
+            #region Pulverize
+            filter = Create("Pulverize", Item.SlotType.Weapon2H, minPowerLevel: 920);
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.Willpower));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.AllStats));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CoreSkillDamage));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageToCloseEnemies));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.VulnerableDamage));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageToSlowedEnemies));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CriticalStrikeDamage));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CriticalStrikeDamageWithEarthSkills));
+
+            filter = Create("Pulverize", Item.SlotType.Helm, minPowerLevel: 700, minAmountOfMatches: 2);
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CooldownReduction));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.MaximumLife));
+
+            filter = Create("Pulverize", Item.SlotType.Chest, minPowerLevel: 700);
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileFortified));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromDistantEnemies));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromCloseEnemies));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReduction));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.MaximumLife));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmor));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.Willpower));
+
+            filter = Create("Pulverize", Item.SlotType.Gloves, minPowerLevel: 700);
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.AttackSpeed));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CriticalStrikeChance));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.LuckyHitChance));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.RanksOfPulverize));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.Willpower));
+
+            filter = Create("Pulverize", Item.SlotType.Pants, minPowerLevel: 700);
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileFortified));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromDistantEnemies));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromCloseEnemies));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReduction));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmorWhileInWerebearForm));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmor));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.MaximumLife));
+
+            filter = Create("Pulverize", Item.SlotType.Boots, minPowerLevel: 700, minAmountOfMatches: 2);
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.MovementSpeed));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.SpiritCostReduction));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.Willpower));
+
+            filter = Create("Pulverize", Item.SlotType.Amulet, minPowerLevel: 700, minAmountOfMatches: 2);
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CooldownReduction));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.SpiritCostReduction));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.MovementSpeed));
+
+            filter = Create("Pulverize", Item.SlotType.Ring, minPowerLevel: 700);
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CriticalStrikeChance));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.LuckyHitChance));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.MaximumLife));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageToCloseEnemies));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.VulnerableDamage));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CriticalStrikeDamage));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CriticalStrikeDamageWithEarthSkills));
+            #endregion
+
+            #region Stormclaw
+            filter = Create("Stormclaw", Item.SlotType.Helm, minPowerLevel: 700, minAmountOfMatches: 2);
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CooldownReduction));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.MaximumLife));
+
+            filter = Create("Stormclaw", Item.SlotType.Chest, minPowerLevel: 700);
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromEnemiesThatArePoisoned));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileFortified));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromDistantEnemies));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromCloseEnemies));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReduction));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.MaximumLife));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.Willpower));
+
+            filter = Create("Stormclaw", Item.SlotType.Gloves, minPowerLevel: 700);
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.LuckyHitChance));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CriticalStrikeChance));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.AttackSpeed));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.Willpower));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.StormSkillCooldownReduction));
+
+            filter = Create("Stormclaw", Item.SlotType.Pants, minPowerLevel: 700);
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromEnemiesThatArePoisoned));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileFortified));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromDistantEnemies));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromCloseEnemies));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReduction));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmor));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.MaximumLife));
+
+            filter = Create("Stormclaw", Item.SlotType.Boots, minPowerLevel: 700, minAmountOfMatches: 2);
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.MovementSpeed));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.Willpower));
+
+            filter = Create("Stormclaw", Item.SlotType.Amulet, minPowerLevel: 700, minAmountOfMatches: 2);
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.MovementSpeed));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CooldownReduction));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.RanksOfTheEnvenomPassive));
+
+            filter = Create("Stormclaw", Item.SlotType.Ring, minPowerLevel: 700);
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageToCloseEnemies));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageToDistantEnemies));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.LuckyHitChance));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.MaximumLife));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CriticalStrikeChance));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CriticalStrikeDamage));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageToPoisonedEnemies));
+            #endregion
 
             #region Crone Bulwark
             filter = Create("Crone Bulwark", Item.SlotType.Weapon1H, minPowerLevel: 700);

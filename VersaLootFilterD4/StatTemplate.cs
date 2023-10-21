@@ -178,7 +178,7 @@ namespace VersaLootFilterD4
             new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"{} Ranks? of Cyclone Armor"),
             new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"{} Ranks? of Blood Howl"),
             new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"{} Ranks? of Landslide"),
-            new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"{} Ranks? of Pulverize"),
+            new StatTemplate(Item.StatType.RanksOfPulverize, DefaultRegexTemplate, @"{} Ranks? of Pulverize"),
             new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"{} Ranks? of Tornado"),
             new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"{} Ranks? of Lightning Storm"),
             new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"{} Ranks? of Shred"),

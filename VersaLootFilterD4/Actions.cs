@@ -110,6 +110,22 @@ namespace VersaLootFilterD4
                 Console.WriteLine(ErrorMessageNoHandle);
         }
 
+        public static void MarkAsFavourite(IntPtr handle)
+        {
+            WinManager.PressKey(handle, WinAPI.VirtualKeys.Space);
+            Thread.Sleep(15);
+            WinManager.PressKey(handle, WinAPI.VirtualKeys.Space);
+            Thread.Sleep(15);
+        }
+
+        public static void MarkAsFavourite()
+        {
+            if (Handle != IntPtr.Zero)
+                MarkAsFavourite(Handle);
+            else
+                Console.WriteLine(ErrorMessageNoHandle);
+        }
+
         public static void SetWindowHandle(IntPtr handle)
         {
             Handle = handle;

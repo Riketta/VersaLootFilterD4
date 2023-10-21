@@ -16,7 +16,7 @@ namespace VersaScreenCapture
 {
     // https://github.com/TheBlackPlague/DynoSharp
 
-    class LatestFrame
+    public class LatestFrame
     {
         private static Direct3D11CaptureFrame CurrentFrame;
         private static readonly Guid ResourceGuid = new Guid("DC8E63F3-D12B-4952-B47B-5E45026A862D");

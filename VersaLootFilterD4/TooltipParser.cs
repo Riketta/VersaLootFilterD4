@@ -9,58 +9,8 @@ using static IronOcr.OcrResult;
 
 namespace VersaLootFilterD4
 {
-    public static class StringExtension
-    {
-        public static string TrimLowerCaseAndWhiteSpaces(this string str)
-        {
-            int i;
-            for (i = 0; i < str.Length && (char.IsWhiteSpace(str[i]) || char.IsLower(str[i])); i++);
-
-            int num = str.Length - 1;
-            while (num >= i && (char.IsWhiteSpace(str[num]) || char.IsLower(str[i])))
-                num--;
-
-            return str.Substring(i, num - i + 1);
-        }
-    }
-
     internal class TooltipParser
     {
-        public static void ProcessItemTooltipImage(Bitmap tooltipImage, bool manual)
-        {
-            ImageConverter converter = new ImageConverter();
-            byte[] image = (byte[])converter.ConvertTo(tooltipImage, typeof(byte[]));
-
-            List<string> tooltip = OCR.Parse(image);
-            //string t = "";
-            //foreach (var line in tooltip)
-            //    t += line + Environment.NewLine;
-            //Console.WriteLine("##########");
-            //Console.WriteLine(t);
-            //Console.WriteLine("==========");
-
-            Item item = Parse(tooltip);
-            if (item == null)
-            {
-                Console.WriteLine("Failed to parse item!");
-                return;
-            }
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine(item);
-            Console.ResetColor();
-
-            var result = LootFilter.FilterItem(item);
-            if (manual)
-                return;
-
-            bool sell = result == LootFilter.Result.Junk;
-            if (sell)
-            {
-                Actions.MarkAsJunk();
-                //Actions.SellItem();
-            }
-        }
-
         public static readonly Regex ItemPowerRegex = new Regex(@"(?<power>\d+) Item Power", RegexOptions.Compiled | RegexOptions.Singleline);
         public static readonly Regex ItemTierRarityAndTypeRegex = new Regex(@"(?<tier>Ancestral|Sacred|) ?(?<rarity>Unique|Legendary|Rare|Magic) (?<itemType>.+)$", RegexOptions.Compiled | RegexOptions.Singleline);
         public static readonly Regex ItemRequiredLevelRegex = new Regex(@"Level (?<level>\d+)", RegexOptions.Compiled | RegexOptions.Singleline);
@@ -232,7 +182,7 @@ namespace VersaLootFilterD4
             Console.BackgroundColor = ConsoleColor.Magenta;
             Console.WriteLine($"  > Remaining: {allStats}"); // DEBUG
             Console.ResetColor();
-            
+
             return item;
         }
     }

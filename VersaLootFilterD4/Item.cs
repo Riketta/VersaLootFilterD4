@@ -129,6 +129,7 @@ namespace VersaLootFilterD4
             RanksOfRavens,
             DamagePerSecond,
             RanksOfTheEnvenomPassive,
+            RanksOfPulverize,
         }
 
         // Basic

@@ -23,6 +23,7 @@ namespace VersaLootFilterD4
             ["Mace"] = Item.SlotType.Weapon1H,
             ["Sword"] = Item.SlotType.Weapon1H,
             ["Dagger"] = Item.SlotType.Weapon1H,
+            ["Wand"] = Item.SlotType.Weapon1H,
 
             // Two Hand Weapons
             ["Staff"] = Item.SlotType.Weapon2H,

@@ -13,28 +13,30 @@ namespace VersaLootFilterD4
 {
     internal class Program
     {
-        static readonly string Title = string.Format("Versa Diablo IV Loot Filter ver. {0}", Assembly.GetEntryAssembly().GetName().Version.ToString());
+        private static readonly string Title = string.Format("Versa Diablo IV Loot Filter ver. {0}", Assembly.GetEntryAssembly().GetName().Version.ToString());
 
-        static WinAPI.VirtualKeys DefaultKey = WinAPI.VirtualKeys.Numpad0;
-        static WinAPI.VirtualKeys QuickKey = WinAPI.VirtualKeys.Numpad1;
+        private static readonly bool IsDebug = false;
+
+        private static readonly WinAPI.VirtualKeys DefaultFilterKey = WinAPI.VirtualKeys.Numpad0;
+        private static readonly WinAPI.VirtualKeys SingleItemFilterKey = WinAPI.VirtualKeys.Numpad1;
 
         static bool Debug()
         {
             Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.High;
             CaptureHandler.IsAvailable();
 
-            var tooltips = TemplateMatching.MatchTestSamplesD4();
+            var tooltips = FrameProcessor.MatchTestSamplesD4();
             foreach (var tooltip in tooltips)
-                TooltipParser.ProcessItemTooltipImage(tooltip, true);
+                OCR.Parse(tooltip, true);
 
             Console.ReadLine();
             return true;
         }
 
         // TODO:
-        // stop on 3 fails (empty bag slots)
-        // prescan empty bag slots with OpenCV
-        // manual cancel with button
+        // count stats of 700+ item power items: should be exactly 4 stats, not including armor and weapon damage.
+        // prescan empty bag slots with OpenCV.
+        // manual cancel with button.
 
         static void Main(string[] args)
         {
@@ -42,9 +44,6 @@ namespace VersaLootFilterD4
 
             Console.Title = Title;
             Console.WriteLine("### {0} ###", Title);
-
-            Console.WriteLine("Parsing key...");
-            WinAPI.VirtualKeys key = DefaultKey;
 
             Console.WriteLine("Getting process");
             Process[] processes = Process.GetProcesses();
@@ -68,21 +67,101 @@ namespace VersaLootFilterD4
                 if (!WinManager.IsWindowInFocus(GameManager.MainWindowHandle))
                     continue;
 
-                if (WinManager.IsKeyPressed(DefaultKey))
-                    Start();
-                else if (WinManager.IsKeyPressed(QuickKey))
-                    Start(true);
+                if (WinManager.IsKeyPressed(DefaultFilterKey))
+                    StartFilter();
+                else if (WinManager.IsKeyPressed(SingleItemFilterKey))
+                    StartFilter(true);
             }
         }
 
-        static void Start(bool quick = false)
+        static void StartFilter(bool parseSingleTooltip = false)
         {
             //Console.WriteLine("ScreenCapture analyze started");
 
             //CaptureHandler.StartPrimaryMonitorCapture(); // TODO: fix to window capture
             CaptureHandler.StartWindowCapture(GameManager.MainWindowHandle);
-            TemplateMatching.DiabloTooltipDetectionLoop(quick ? null : Actions.IterateOverBag(), TooltipParser.ProcessItemTooltipImage);
+            int renderDelay = parseSingleTooltip ? 0 : 200;
+            var itemIter = parseSingleTooltip ? Enumerable.Range(1, 1) : Actions.IterateOverBag();
+
+            int fails = 0;
+            int failsMax = 3;
+            int itemsTextParsed = 0;
+            long totalTextParsingTime = 0;
+            foreach (int itemIndex in itemIter)
+            {
+                if (renderDelay > 0)
+                    Thread.Sleep(renderDelay); // let tooltip render
+
+                Bitmap tooltipImage = null;
+                try
+                {
+                    tooltipImage = FrameProcessor.GetDiabloTooltip();
+                }
+                catch (Exception ex)
+                {
+                    Logger.WriteLineInColor(ConsoleColor.Red, $"Exception occurred: {ex}");
+                }
+                if (tooltipImage is null) // empty bag slot or error
+                {
+                    Console.WriteLine($"Failed to detect tooltip! Skipping.");
+                    
+                    // TODO: fix white and blue items not being parsed and counts as "empty slot" due to not passing threshold
+                    fails++;
+                    if (fails == failsMax)
+                        break;
+
+                    continue;
+                }
+
+                //OCR.BruteFilters(tooltipImage); // use to correct OCR parsing filters
+                long startTime = Stopwatch.GetTimestamp();
+                List<string> tooltipStringArr = OCR.Parse(tooltipImage, true, IsDebug);
+                long elapsedTime = Stopwatch.GetTimestamp() - startTime;
+                if (IsDebug)
+                {
+                    itemsTextParsed++;
+                    totalTextParsingTime += elapsedTime;
+                    Logger.WriteLineInColor(ConsoleColor.Cyan, $"### Tooltip text parsed in: {elapsedTime / 10_000} ms");
+                }
+
+                Item item = null;
+                try
+                {
+                    item = TooltipParser.Parse(tooltipStringArr);
+                }
+                catch (Exception ex)
+                {
+                    Logger.WriteLineInColor(ConsoleColor.Red, $"Exception occurred: {ex}");
+                }
+                if (item is null)
+                {
+                    Console.WriteLine("Failed to parse item! Skipping.");
+                    continue;
+                }
+
+                Logger.WriteLineInColor(ConsoleColor.DarkYellow, item);
+
+                var result = LootFilter.FilterItem(item);
+                switch (result)
+                {
+                    case LootFilter.Result.Junk:
+                        Actions.MarkAsJunk();
+                        //Actions.SellItem();
+                        break;
+
+                    case LootFilter.Result.Keep:
+                        Actions.MarkAsFavourite();
+                        break;
+                }
+
+                fails = 0; // TODO: reset only if not error?
+
+                Console.WriteLine("=================================================");
+            }
             CaptureHandler.Stop();
+
+            if (IsDebug)
+                Logger.WriteLineInColor(ConsoleColor.Cyan, $"### Average time text parsed in: {totalTextParsingTime / itemsTextParsed / 10_000} ms");
 
             //Console.WriteLine("ScreenCapture analyze done");
         }
