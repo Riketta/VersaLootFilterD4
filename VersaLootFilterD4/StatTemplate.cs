@@ -217,8 +217,8 @@ namespace VersaLootFilterD4
             new StatTemplate(Item.StatType.ChanceToExecuteInjuredNonElites, DefaultRegexTemplate, @"Lucky Hit: Up to a {} Chance to Execute Injured Non-Elites"),
 
             // Implicit Pants
-            new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"While Injured, Your Potion Also Restores {} Maximum Life as Barrier"),
-            new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"While Injured, Your Potion Also Restores {} Movement Speed for 2 Seconds"),
+            new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"While Injured, Your Potion Also Grants {} Maximum Life as Barrier"),
+            new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"While Injured, Your Potion Also Grants {} Movement Speed for 2 Seconds"),
             new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"While Injured, Your Potion Also Restores {} Resource"),
 
             // Implicit Boots
