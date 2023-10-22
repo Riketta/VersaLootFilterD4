@@ -35,6 +35,9 @@ namespace VersaLootFilterD4
             ["Shield"] = Item.SlotType.OffHand,
             ["Totem"] = Item.SlotType.OffHand,
             ["Focus"] = Item.SlotType.OffHand,
+
+            // Aliases
+            ["Shiel"] = Item.SlotType.OffHand,
         };
     }
 }
