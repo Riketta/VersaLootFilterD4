@@ -180,8 +180,8 @@ namespace VersaLootFilterD4
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.MaximumLife));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.Willpower));
 
-            filter = Create("910+ Weapon2H", Item.SlotType.Weapon2H, 0, 920);
-            filter = Create("910+ Weapon1H", Item.SlotType.Weapon1H, 0, 920);
+            filter = Create("High DPS Weapon2H", Item.SlotType.Weapon2H, 0, 920);
+            filter = Create("High DPS Weapon1H", Item.SlotType.Weapon1H, 0, 920);
 
             #region Pulverize
             filter = Create("Pulverize", Item.SlotType.Weapon2H, minPowerLevel: 920);
@@ -292,68 +292,47 @@ namespace VersaLootFilterD4
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageToPoisonedEnemies));
             #endregion
 
-            #region Crone Bulwark
-            filter = Create("Crone Bulwark", Item.SlotType.Weapon1H, minPowerLevel: 700);
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CriticalStrikeDamage));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CriticalStrikeDamageWithEarthSkills));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.VulnerableDamage));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.Willpower));
-
-            filter = Create("Crone Bulwark", Item.SlotType.OffHand, minPowerLevel: 700);
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CriticalStrikeChance));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.BasicSkillAttackSpeed));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileFortified));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromEnemiesThatArePoisoned));
-
-            filter = Create("Crone Bulwark", Item.SlotType.Helm, minPowerLevel: 700);
+            #region Bulwark Stormclaw
+            filter = Create("Bulwark Stormclaw", Item.SlotType.Helm, minPowerLevel: 750, minAmountOfMatches: 2);
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.BarrierGeneration));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CooldownReduction));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.BasicSkillAttackSpeed));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.MaximumLife));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromEnemiesThatArePoisoned));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmor));
 
-            filter = Create("Crone Bulwark", Item.SlotType.Chest, minPowerLevel: 700);
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileFortified));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromEnemiesThatArePoisoned));
+            filter = Create("Bulwark Stormclaw", Item.SlotType.Chest, minPowerLevel: 750, minAmountOfMatches: 2);
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.RanksOfEarthenBulwark));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmor));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromCloseEnemies));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.MaximumLife));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmor));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmorWhileInWerewolfForm));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromEnemiesThatArePoisoned));
 
-            filter = Create("Crone Bulwark", Item.SlotType.Gloves, minPowerLevel: 700);
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.AttackSpeed));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CriticalStrikeDamage));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CriticalStrikeChance));
+            filter = Create("Bulwark Stormclaw", Item.SlotType.Gloves, minPowerLevel: 750, minAmountOfMatches: 2);
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.LuckyHitChance));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CriticalStrikeChance));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.Willpower));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.AttackSpeed));
 
-            filter = Create("Crone Bulwark", Item.SlotType.Pants, minPowerLevel: 700);
+            filter = Create("Bulwark Stormclaw", Item.SlotType.Pants, minPowerLevel: 750);
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmor));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileInjured));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReduction));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromEnemiesThatArePoisoned));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileFortified));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileInjured));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.MaximumLife));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromCloseEnemies));
 
-            filter = Create("Crone Bulwark", Item.SlotType.Boots, minPowerLevel: 700);
+            filter = Create("Bulwark Stormclaw", Item.SlotType.Boots, minPowerLevel: 750, minAmountOfMatches: 2);
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileInjured));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.MovementSpeed));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.FortifyGeneration));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmorWhileInWerewolfForm));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileInjured));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromEnemiesThatArePoisoned)); // ???
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromEnemiesThatArePoisoned));
 
-            filter = Create("Crone Bulwark", Item.SlotType.Amulet, minPowerLevel: 700);
+            filter = Create("Bulwark Stormclaw", Item.SlotType.Amulet, minPowerLevel: 750, minAmountOfMatches: 2);
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileInjured));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.RanksOfTheEnvenomPassive));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CooldownReduction));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileFortified));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmorWhileInWerewolfForm));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.MovementSpeed));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromCloseEnemies));
 
-            filter = Create("Crone Bulwark", Item.SlotType.Ring, minPowerLevel: 700);
+            filter = Create("Bulwark Stormclaw", Item.SlotType.Ring, minPowerLevel: 750, minAmountOfMatches: 2);
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.BarrierGeneration));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.VulnerableDamage));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageToCloseEnemies));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.CriticalStrikeChance));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CriticalStrikeDamage));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CriticalStrikeDamageWithEarthSkills));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.MaximumLife));
             #endregion
 

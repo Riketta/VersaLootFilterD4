@@ -214,7 +214,7 @@ namespace VersaLootFilterD4
                 }
 
                 if (areStatsMissing)
-                    Logger.WriteLineInColor(ConsoleColor.DarkRed, $"Warning: following item has less stats than it should have: {item.Stats.Count}/{usualAmountOfStats}!");
+                    Logger.WriteLineInColor(ConsoleColor.DarkRed, $"Warning: item \"{item.Name}\" has less stats than it should have: {item.Stats.Count}/{usualAmountOfStats}!");
             }
 
             if (debug)
