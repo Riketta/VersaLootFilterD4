@@ -74,6 +74,7 @@ namespace VersaLootFilterD4
             new StatTemplate(Item.StatType.PoisonResistance, DefaultRegexTemplate, @"{} Poison Resistance"),
             new StatTemplate(Item.StatType.ShadowResistance, DefaultRegexTemplate, @"{} Shadow Resistance"),
             new StatTemplate(Item.StatType.ResistanceToAllElements, DefaultRegexTemplate, @"{} Resistance to All Elements"),
+            new StatTemplate(Item.StatType.ResistanceToAllElements, DefaultRegexTemplate, @"{} Resistance to All Elemer\.\.\.\."),
 
             // Stats // TODO: separate % and flat?
             new StatTemplate(Item.StatType.AllStats, DefaultRegexTemplate, @"{} All Stats"),
