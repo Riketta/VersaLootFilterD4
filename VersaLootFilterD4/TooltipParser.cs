@@ -69,6 +69,7 @@ namespace VersaLootFilterD4
                     }
                     catch (Exception ex)
                     {
+                        Console.WriteLine($"Error during parsing: {itemNameAndType}");
                         Console.WriteLine($"Error: {ex}");
                     }
 
@@ -76,12 +77,12 @@ namespace VersaLootFilterD4
                 }
                 if (item.Slot == Item.SlotType.None)
                 {
-                    Console.WriteLine("Failed to parse item type!");
+                    Console.WriteLine($"Failed to parse item type: \"{itemNameAndType}\"!");
                     return null;
                 }
                 if (item.Rarity == Item.RarityType.None)
                 {
-                    Console.WriteLine("Failed to parse item rarity!");
+                    Console.WriteLine($"Failed to parse item rarity: \"{itemNameAndType}\"!");
                     return null;
                 }
             }
