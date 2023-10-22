@@ -165,7 +165,7 @@ namespace VersaLootFilterD4
             foreach (var stat in Stats)
                 tooltip += stat.ToString() + "; ";
 
-            return tooltip;
+            return tooltip.Trim();
         }
     }
 }
