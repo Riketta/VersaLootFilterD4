@@ -158,13 +158,7 @@ namespace VersaLootFilterD4
 
 
             // Stats
-            StringBuilder allStatsSB = new StringBuilder();
-            for (int i = 0; i <= lastLineWithStats; i++)
-            {
-                allStatsSB.Append(tooltip[i]);
-                allStatsSB.Append(' ');
-            }
-            string allStats = allStatsSB.ToString();
+            string allStats = string.Join(" ", tooltip.ToArray(), 0, lastLineWithStats + 1);
 
             foreach (var statTemplate in StatTemplate.All)
             {
