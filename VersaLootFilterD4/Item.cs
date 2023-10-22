@@ -131,6 +131,9 @@ namespace VersaLootFilterD4
             RanksOfTheEnvenomPassive,
             RanksOfPulverize,
             RanksOfEarthenBulwark,
+            MaximumEvadeCharges,
+            EvadeGrantsMovementSpeed,
+            AttacksReduceEvadesCooldown,
         }
 
         // Basic

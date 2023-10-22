@@ -222,9 +222,9 @@ namespace VersaLootFilterD4
             new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"While Injured, Your Potion Also Restores {} Resource"),
 
             // Implicit Boots
-            new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"{} Maximum Evade Charges"),
-            new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"Evade Grants {} Movement Speed for 1 Second"),
-            new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"Attacks Reduce Evade[’']s Cooldown by {} Second"),
+            new StatTemplate(Item.StatType.MaximumEvadeCharges, DefaultRegexTemplate, @"{} Maximum Evade Charges"),
+            new StatTemplate(Item.StatType.EvadeGrantsMovementSpeed, DefaultRegexTemplate, @"Evade Grants {} Movement Speed for 1 Second"),
+            new StatTemplate(Item.StatType.AttacksReduceEvadesCooldown, DefaultRegexTemplate, @"Attacks Reduce Evade[’']s Cooldown by {} Second"),
 
             // Movement Speed
             new StatTemplate(Item.StatType.MovementSpeed, DefaultRegexTemplate, @"{} Movement Speed"),
