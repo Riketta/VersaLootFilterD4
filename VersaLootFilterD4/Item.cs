@@ -134,6 +134,7 @@ namespace VersaLootFilterD4
             MaximumEvadeCharges,
             EvadeGrantsMovementSpeed,
             AttacksReduceEvadesCooldown,
+            PotionDropRate,
         }
 
         // Basic
