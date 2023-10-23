@@ -313,6 +313,7 @@ namespace VersaLootFilterD4
             filter = Create("Bulwark Stormclaw", Item.SlotType.Pants, minPowerLevel: 750);
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmor));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileInjured));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileFortified));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReduction));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromEnemiesThatArePoisoned));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromCloseEnemies));
