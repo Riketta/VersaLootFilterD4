@@ -233,7 +233,7 @@ namespace VersaLootFilterD4
             // Other
             new StatTemplate(Item.StatType.Thorns, DefaultRegexTemplate, @"{} Thorns"),
             new StatTemplate(Item.StatType.ShrineBuffDuration, DefaultRegexTemplate, @"{} Shrine Buff Duration"),
-            new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"{} Potion Drop Rate"),
+            new StatTemplate(Item.StatType.PotionDropRate, DefaultRegexTemplate, @"{} Potion Drop Rate"),
         };
     }
 }
