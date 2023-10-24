@@ -169,7 +169,7 @@ namespace VersaLootFilterD4
             CaptureHandler.Stop();
 
             if (IsDebug)
-                Logger.WriteLineInColor(ConsoleColor.Cyan, $"### Average time text parsed in: {totalTextParsingTime / itemsTextParsed / 10_000} ms");
+                Logger.WriteLineInColor(ConsoleColor.Cyan, $"### Average time text parsed in: {totalTextParsingTime / (itemsTextParsed > 0 ? itemsTextParsed : 1) / 10_000} ms");
 
             //Console.WriteLine("ScreenCapture analyze done");
         }
