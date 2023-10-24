@@ -246,13 +246,14 @@ namespace VersaLootFilterD4
             #region Stormclaw
             filter = Create("Stormclaw", Item.SlotType.Helm, minPowerLevel: 750, minAmountOfMatches: 2);
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.CooldownReduction));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.BasicSkillAttackSpeed));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.MaximumLife));
 
             filter = Create("Stormclaw", Item.SlotType.Chest, minPowerLevel: 750);
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromEnemiesThatArePoisoned));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileFortified));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromDistantEnemies));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromCloseEnemies));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromDistantEnemies));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReduction));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.MaximumLife));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.Willpower));
@@ -263,24 +264,33 @@ namespace VersaLootFilterD4
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.AttackSpeed));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.Willpower));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.StormSkillCooldownReduction));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.AllStats));
 
             filter = Create("Stormclaw", Item.SlotType.Pants, minPowerLevel: 750);
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromEnemiesThatArePoisoned));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileFortified));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromDistantEnemies));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromCloseEnemies));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromDistantEnemies));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileInjured));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReduction));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmor));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.MaximumLife));
 
             filter = Create("Stormclaw", Item.SlotType.Boots, minPowerLevel: 750, minAmountOfMatches: 2);
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.MovementSpeed));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileInjured));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmorWhileInWerewolfForm));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.Willpower));
 
             filter = Create("Stormclaw", Item.SlotType.Amulet, minPowerLevel: 750, minAmountOfMatches: 2);
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.MovementSpeed));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CooldownReduction));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.RanksOfTheEnvenomPassive));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CooldownReduction));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileInjured));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromEnemiesThatArePoisoned));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileFortified));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromCloseEnemies));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromDistantEnemies));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmorWhileInWerewolfForm));
 
             filter = Create("Stormclaw", Item.SlotType.Ring, minPowerLevel: 750);
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageToCloseEnemies));
