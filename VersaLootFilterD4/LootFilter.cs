@@ -321,7 +321,7 @@ namespace VersaLootFilterD4
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReduction));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.BarrierGeneration));
 
-            filter = Create("Bulwark Stormclaw", Item.SlotType.Gloves, minPowerLevel: 750, minAmountOfMatches: 2);
+            filter = Create("Bulwark Stormclaw", Item.SlotType.Gloves, minPowerLevel: 750, minAmountOfMatches: 3);
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.LuckyHitChance));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.CriticalStrikeChance));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.Willpower));
