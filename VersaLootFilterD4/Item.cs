@@ -135,6 +135,7 @@ namespace VersaLootFilterD4
             EvadeGrantsMovementSpeed,
             AttacksReduceEvadesCooldown,
             PotionDropRate,
+            RanksOfAllDefensiveSkills,
         }
 
         // Basic

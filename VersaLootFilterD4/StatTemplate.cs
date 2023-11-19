@@ -202,7 +202,7 @@ namespace VersaLootFilterD4
             // Ranks
             new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"{} Ranks? of All Wrath Skills"),
             new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"{} Ranks? of All Companion Skills"),
-            new StatTemplate(Item.StatType.None, DefaultRegexTemplate, @"{} Ranks? of All Defensive Skills"),
+            new StatTemplate(Item.StatType.RanksOfAllDefensiveSkills, DefaultRegexTemplate, @"{} Ranks? of All Defensive Skills"),
 
             // Crowd Control
             new StatTemplate(Item.StatType.CrowdControlDuration, DefaultRegexTemplate, @"{} Crowd Control Duration"),
