@@ -194,9 +194,11 @@ namespace VersaLootFilterD4
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.CriticalStrikeDamage));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.CriticalStrikeDamageWithEarthSkills));
 
-            filter = Create("Pulverize", Item.SlotType.Helm, minPowerLevel: 750, minAmountOfMatches: 2);
+            filter = Create("Pulverize", Item.SlotType.Helm, minPowerLevel: 750, minAmountOfMatches: 3);
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.CooldownReduction));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.MaximumLife));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.Willpower));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmor));
 
             filter = Create("Pulverize", Item.SlotType.Chest, minPowerLevel: 750);
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileFortified));
@@ -204,8 +206,6 @@ namespace VersaLootFilterD4
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromCloseEnemies));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReduction));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.MaximumLife));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmor));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.Willpower));
 
             filter = Create("Pulverize", Item.SlotType.Gloves, minPowerLevel: 750);
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.AttackSpeed));
@@ -219,8 +219,6 @@ namespace VersaLootFilterD4
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromDistantEnemies));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromCloseEnemies));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReduction));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmorWhileInWerebearForm));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmor));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.MaximumLife));
 
             filter = Create("Pulverize", Item.SlotType.Boots, minPowerLevel: 750, minAmountOfMatches: 2);
@@ -241,10 +239,11 @@ namespace VersaLootFilterD4
             #endregion
 
             #region Stormclaw
-            filter = Create("Stormclaw", Item.SlotType.Helm, minPowerLevel: 750, minAmountOfMatches: 2);
+            filter = Create("Stormclaw", Item.SlotType.Helm, minPowerLevel: 750, minAmountOfMatches: 3);
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.CooldownReduction));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.BasicSkillAttackSpeed));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.MaximumLife));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmor));
 
             filter = Create("Stormclaw", Item.SlotType.Chest, minPowerLevel: 750);
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromEnemiesThatArePoisoned));
@@ -253,7 +252,6 @@ namespace VersaLootFilterD4
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromDistantEnemies));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReduction));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.MaximumLife));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.Willpower));
 
             filter = Create("Stormclaw", Item.SlotType.Gloves, minPowerLevel: 750);
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.LuckyHitChance));
@@ -272,7 +270,7 @@ namespace VersaLootFilterD4
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReduction));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.MaximumLife));
 
-            filter = Create("Stormclaw", Item.SlotType.Boots, minPowerLevel: 750, minAmountOfMatches: 2);
+            filter = Create("Stormclaw", Item.SlotType.Boots, minPowerLevel: 750, minAmountOfMatches: 3);
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.MovementSpeed));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileInjured));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmorWhileInWerewolfForm));
@@ -286,8 +284,6 @@ namespace VersaLootFilterD4
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromEnemiesThatArePoisoned));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileFortified));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromCloseEnemies));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromDistantEnemies));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmorWhileInWerewolfForm));
 
             filter = Create("Stormclaw", Item.SlotType.Ring, minPowerLevel: 750);
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageToCloseEnemies));
@@ -302,7 +298,19 @@ namespace VersaLootFilterD4
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.BarrierGeneration));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.BasicSkillAttackSpeed));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.CooldownReduction));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmor)); // or All Stats or Willpower or Lucky Hit while have a Barrier
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmor));
+
+            filter = Create("Bulwark Stormclaw", Item.SlotType.Helm, minPowerLevel: 750, minAmountOfMatches: 2);
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.BarrierGeneration));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.BasicSkillAttackSpeed));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CooldownReduction));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.Willpower));
+
+            filter = Create("Bulwark Stormclaw", Item.SlotType.Helm, minPowerLevel: 750, minAmountOfMatches: 2);
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.BarrierGeneration));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.BasicSkillAttackSpeed));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.CooldownReduction));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.AllStats));
 
             filter = Create("Bulwark Stormclaw", Item.SlotType.Chest, minPowerLevel: 750, minAmountOfMatches: 2);
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.RanksOfEarthenBulwark));
@@ -320,17 +328,16 @@ namespace VersaLootFilterD4
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.AttackSpeed));
 
             filter = Create("Bulwark Stormclaw", Item.SlotType.Pants, minPowerLevel: 750);
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmor));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileInjured));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileFortified));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromEnemiesThatArePoisoned));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromCloseEnemies));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromEnemiesThatArePoisoned));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReduction));
 
             filter = Create("Bulwark Stormclaw", Item.SlotType.Boots, minPowerLevel: 750, minAmountOfMatches: 2);
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileInjured));
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.MovementSpeed));
-            filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionFromEnemiesThatArePoisoned));
+            filter.Stats.Add(new StatKeyValuePair(Item.StatType.TotalArmorWhileInWerewolfForm));
 
             filter = Create("Bulwark Stormclaw", Item.SlotType.Amulet, minPowerLevel: 750, minAmountOfMatches: 3);
             filter.Stats.Add(new StatKeyValuePair(Item.StatType.DamageReductionWhileInjured));
